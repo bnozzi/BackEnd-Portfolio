@@ -69,7 +69,6 @@ public class AuthUser {
         Map<String, String> response = new HashMap<>();
 
         response.put("token", jwt);
-        System.out.println(isJwtValid(jwt, getSecretKey()));
         return ResponseEntity.ok(response);
     }
 
