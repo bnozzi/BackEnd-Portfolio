@@ -3,25 +3,27 @@ package com.web.Portfolio.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.Portfolio.Model.SkillCategory;
-import com.web.Portfolio.Model.SkillItem;
 import com.web.Portfolio.Service.SkillCategoryService;
-
-import java.util.List;
-
+import io.jsonwebtoken.JwtException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class SkillCategoryController {
 
     @Autowired
     private SkillCategoryService skillCategoryService;
+
+    @Autowired
+    private AuthUser auth;
 
     @GetMapping("/getSkillCategory/{id}")
     public SkillCategory getSkillCategoryById(@PathVariable long id) {
@@ -34,25 +36,46 @@ public class SkillCategoryController {
     }
 
     @PostMapping("/addSkillCategory")
-    public void addSkillCategory(@RequestBody SkillCategory skillCategory) {
-        skillCategoryService.addSkillCategory(skillCategory);
+    public ResponseEntity<Map<String, String>> addSkillCategory(@RequestBody SkillCategory skillCategory,
+            @RequestHeader("Authorization") String authorizationHeader) {
+        Map<String, String> response = new HashMap<>();
+        String jwt = authorizationHeader.substring(7);
+        if (auth.isJwtValid(jwt, auth.getSecretKey())) {
+            skillCategoryService.addSkillCategory(skillCategory);
+            response.put("mensaje", "Categoría de habilidad agregada");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            throw new JwtException("JWT no válido");
+        }
     }
 
     @DeleteMapping("/deleteSkillCategory/{id}")
-    public void deleteSkillCategory(@PathVariable long id) {
-        skillCategoryService.deleteSkillCategory(id);
+    public ResponseEntity<Map<String, String>> deleteSkillCategory(@PathVariable long id,
+            @RequestHeader("Authorization") String authorizationHeader) {
+        Map<String, String> response = new HashMap<>();
+        String jwt = authorizationHeader.substring(7);
+        if (auth.isJwtValid(jwt, auth.getSecretKey())) {
+            skillCategoryService.deleteSkillCategory(id);
+            response.put("mensaje", "Categoría de habilidad eliminada");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            throw new JwtException("JWT no válido");
+        }
+
     }
 
-             
-
-    @PutMapping("/updateSkillCategory")
-    public void updateSkillCategory( @RequestBody List<SkillCategory> skillCategory) {
-        skillCategoryService.updateSkillCategory(skillCategory);
-    }
-
-
-    @GetMapping("/getSkillsByCategoryId/{id}")
-    public List<SkillItem> getSkillsByCategoryId(@PathVariable long id) {
-        return  skillCategoryService.getAllSkillItemsByCategoryId(id);
+    @PutMapping("/updateSkillCategory/{id}")
+    public ResponseEntity<Map<String, String>> updateSkillCategory(@RequestBody SkillCategory skillCategory,
+            @PathVariable long id,
+            @RequestHeader("Authorization") String authorizationHeader) {
+        Map<String, String> response = new HashMap<>();
+        String jwt = authorizationHeader.substring(7);
+        if (auth.isJwtValid(jwt, auth.getSecretKey())) {
+            skillCategoryService.updateSkillCategory(skillCategory, id);
+            response.put("mensaje", "Categoría de habilidad actualizada");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            throw new JwtException("JWT no válido");
+        }
     }
 }

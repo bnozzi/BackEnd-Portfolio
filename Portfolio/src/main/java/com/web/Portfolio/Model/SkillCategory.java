@@ -29,13 +29,14 @@ import lombok.Setter;
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  @OneToMany(mappedBy = "categoria")
-  private List<SkillItem> habilidades;
+  private List<String> habilidades;
   
   @ManyToOne
   @JsonIgnore
   private Usuario usuario;
   private String nombre;
+
+  
 
   public SkillCategory () { };
   

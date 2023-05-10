@@ -14,7 +14,7 @@ public interface InterSkillCategoryService {
 
     public void deleteSkillCategory(Long id);
 
-    public void updateSkillCategory(List<SkillCategory> skillCategory);
+    public void updateSkillCategory(SkillCategory skillCategory,Long id);
     
     
 

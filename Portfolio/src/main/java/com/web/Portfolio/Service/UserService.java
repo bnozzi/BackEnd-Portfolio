@@ -27,11 +27,17 @@ public class UserService implements InterUserService {
 
     @Override
     public void addAboutUser(SobreMi sobreMi) {
-        
+
+    }
+
+    @Override
+    public Usuario getUserByEmail(String email) {
+        return userRepo.findByEmail(email);
+
     }
 
     
 
 
-    
+
 }

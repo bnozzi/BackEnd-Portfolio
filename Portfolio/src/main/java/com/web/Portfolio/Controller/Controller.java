@@ -38,6 +38,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class Controller {
 
+
+    /*
+     * Test getmapping
+     */
+    @GetMapping("/hola")
+    public String sayHelloString() {
+        return "hello world";
+    }
+
     // userService
 
     @Autowired

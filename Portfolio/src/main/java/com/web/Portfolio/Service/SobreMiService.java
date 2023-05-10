@@ -6,19 +6,27 @@ import org.springframework.stereotype.Service;
 import com.web.Portfolio.Model.SobreMi;
 import com.web.Portfolio.Model.Usuario;
 import com.web.Portfolio.Repository.SobreMiRepository;
+import com.web.Portfolio.Repository.UserRepository;
 @Service
 public class SobreMiService implements InterSobreMiService {
 
     @Autowired
     public SobreMiRepository sobreMiRepository;
 
+    @Autowired
+    public UserRepository userRepo;
+
     @Override
-    public SobreMi getAboutMe(long id) {
-        return sobreMiRepository.findById(id).orElse(null);
+    public SobreMi getAboutMe() {
+        Usuario user = userRepo.findById((long) 151297).orElse(null);
+        return user.getSobreMi();
     }
 
     @Override
-    public void editAboutMe(long id) {
+    public void editAboutMe(SobreMi sobreMi) {
+        Usuario user = userRepo.findById((long) 151297).orElse(null);
+        user.setSobreMi(sobreMi);
+        userRepo.flush();
     }
 
     @Autowired

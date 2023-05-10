@@ -11,4 +11,6 @@ public interface InterUserService {
     public void addUser(Usuario user);
 
     public void addAboutUser(SobreMi sobreMi);
+
+    public Usuario getUserByEmail(String email);
 }

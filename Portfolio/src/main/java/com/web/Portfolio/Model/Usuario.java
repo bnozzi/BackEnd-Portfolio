@@ -113,9 +113,7 @@ public class Usuario {
     experiencias.add(newExperiencia);
   }
 
-  public void agregarSkillItem(int idCatagory, SkillItem newSkillItem) {
-
-  }
+ 
 
   public void editExperiencia(Long idExperiencia, Experiencia experiencia) {
 

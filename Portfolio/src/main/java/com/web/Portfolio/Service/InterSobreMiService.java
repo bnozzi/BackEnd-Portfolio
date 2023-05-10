@@ -5,9 +5,9 @@ import com.web.Portfolio.Model.SobreMi;
 public interface InterSobreMiService {
     
     
-    public SobreMi getAboutMe(long id);
+    public SobreMi getAboutMe();
 
-    public void editAboutMe(long id);
+    public void editAboutMe(SobreMi sobreMi);
 
     public void addSobreMi(SobreMi sobreMi);
 
