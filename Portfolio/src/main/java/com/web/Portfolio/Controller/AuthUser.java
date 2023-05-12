@@ -55,7 +55,7 @@ public class AuthUser {
         if (!user.getContraseña().equals(usuario.getContraseña())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseError);
         }
-
+        
         //this.setSecretKey(Keys.secretKeyFor(SignatureAlgorithm.HS512));
         String jwt = Jwts.builder()
                 .setSubject(user.getEmail())
