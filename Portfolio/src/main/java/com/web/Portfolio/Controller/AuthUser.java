@@ -25,8 +25,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-@RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RestController
 public class AuthUser {
     private SecretKey secret = Keys.secretKeyFor(SignatureAlgorithm.HS512);

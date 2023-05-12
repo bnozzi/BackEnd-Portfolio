@@ -34,8 +34,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 // en la clase controller tengo que crear todas las rest apis o rutas para responder a las peticiones 
 @RestController
-@RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class Controller {
 
 

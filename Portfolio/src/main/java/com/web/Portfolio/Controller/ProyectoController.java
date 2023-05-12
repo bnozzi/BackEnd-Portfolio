@@ -24,8 +24,6 @@ import com.web.Portfolio.Service.ProyectosService;
 import io.jsonwebtoken.JwtException;
 
 @RestController
-@RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class ProyectoController {
     
     @Autowired

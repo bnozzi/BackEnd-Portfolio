@@ -24,8 +24,6 @@ import com.web.Portfolio.Service.EducacionService;
 import io.jsonwebtoken.JwtException;
 
 @RestController
-@RequestMapping("/")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EducacionController {
 
     @Autowired

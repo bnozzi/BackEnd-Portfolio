@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class SkillCategoryController {
 
     @Autowired
