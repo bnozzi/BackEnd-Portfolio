@@ -94,7 +94,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-					<mainClass>com.web.Portfolio</mainClass>
+					<mainClass>com.web.Portfolio.PortfolioApplication</mainClass>
 				</configuration>
 			</plugin>
 
