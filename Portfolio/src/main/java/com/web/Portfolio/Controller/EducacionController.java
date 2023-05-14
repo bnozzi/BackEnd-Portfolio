@@ -25,13 +25,12 @@ import io.jsonwebtoken.JwtException;
 
 @RestController
 public class EducacionController {
-
+    
     @Autowired
     private EducacionService educacionService;
-
+    
     @Autowired
     private AuthUser auth;
-
     @PostMapping("/addEducation")
     public ResponseEntity<Map<String, String>> addEducation(@RequestBody Educacion educacion,
             @RequestHeader("Authorization") String authorizationHeader) {
