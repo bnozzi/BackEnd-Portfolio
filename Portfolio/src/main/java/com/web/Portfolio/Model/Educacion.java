@@ -40,6 +40,8 @@ public class Educacion {
   private Boolean Actualmente;
   @Column(length = 1000)
   private String descripcion;
+
+  private String linkCertificate;
   
   //
   // Constructors

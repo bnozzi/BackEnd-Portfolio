@@ -57,6 +57,7 @@ public class EducacionService implements InterEducacionService {
             edu.setImagen(educacion.getImagen());
             edu.setUsuario(educacion.getUsuario());
             edu.setActualmente(educacion.getActualmente());
+            edu.setLinkCertificate(educacion.getLinkCertificate());
             eduRepo.flush();
             eduRepo.save(edu);
         }
