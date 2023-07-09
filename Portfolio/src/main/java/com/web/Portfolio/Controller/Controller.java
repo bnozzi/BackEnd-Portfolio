@@ -41,11 +41,11 @@ public class Controller {
             throw new JwtException("JWT no válido");
         }
     }
-    //   @PostMapping("/addUser")
-    //   public void addUser(@RequestBody Usuario user) {
-    //   uService.addUser(user);
-      
-    //   }
+    @PostMapping("/addUser")
+    public void addUser(@RequestBody Usuario user) {
+    uService.addUser(user);
+
+    }
 
       // aboutMe Service
 
