@@ -18,15 +18,27 @@ public class SobreMiService implements InterSobreMiService {
 
     @Override
     public SobreMi getAboutMe() {
-        Usuario user = userRepo.findById((long) 151297).orElse(null);
-        return user.getSobreMi();
+        try {
+            Usuario user = userRepo.findById((long) 151297).orElse(null);
+            return user.getSobreMi();
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            return null; // O devuelve un objeto nulo, dependiendo de tus requisitos
+        }
     }
 
     @Override
     public void editAboutMe(SobreMi sobreMi) {
-        Usuario user = userRepo.findById((long) 151297).orElse(null);
-        user.setSobreMi(sobreMi);
-        userRepo.flush();
+        try {
+            Usuario user = userRepo.findById((long) 151297).orElse(null);
+            user.setSobreMi(sobreMi);
+            userRepo.flush();
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
+        }
     }
 
     @Autowired

@@ -21,46 +21,73 @@ public class EducacionService implements InterEducacionService {
 
     @Override
     public List<Educacion> getAllEducations() {
-        return eduRepo.findAll();
+        try {
+            return eduRepo.findAll();
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            return null; // O devuelve una lista vacía, dependiendo de tus requisitos
+        }
     }
 
     @Override
     public Educacion getEducation(long id) {
-        return eduRepo.findById(id).orElse(null);
+        try {
+            return eduRepo.findById(id).orElse(null);
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            return null; // O devuelve un objeto nulo, dependiendo de tus requisitos
+        }
     }
 
     @Override
     public void addEducation(Educacion educacion) {
-        Usuario user = userRepo.findById((long) 151297).orElse(null);
-        user.agregarEducacion(educacion);
-        educacion.setUsuario(user);
-        userRepo.flush();
-        eduRepo.save(educacion);
+        try {
+            Usuario user = userRepo.findById((long) 151297).orElse(null);
+            user.agregarEducacion(educacion);
+            educacion.setUsuario(user);
+            userRepo.flush();
+            eduRepo.save(educacion);
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
+        }
     }
 
     @Override
     public void removeEducation(long id) {
-        eduRepo.deleteById(id);
-        eduRepo.flush();
-
+        try {
+            eduRepo.deleteById(id);
+            eduRepo.flush();
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
+        }
     }
 
     @Override
     public void updateEducation(long id, Educacion educacion) {
-        Educacion edu = eduRepo.findById(id).orElse(null);
-        
-        if (edu != null) {
-            edu.setTitulo(educacion.getTitulo());
-            edu.setDescripcion(educacion.getDescripcion());
-            edu.setTiempoDesde(educacion.getTiempoDesde());
-            edu.setTiempoHasta(educacion.getTiempoHasta());
-            edu.setImagen(educacion.getImagen());
-            edu.setUsuario(educacion.getUsuario());
-            edu.setActualmente(educacion.getActualmente());
-            edu.setLinkCertificate(educacion.getLinkCertificate());
-            eduRepo.flush();
-            eduRepo.save(edu);
+        try {
+            Educacion edu = eduRepo.findById(id).orElse(null);
+            if (edu != null) {
+                edu.setTitulo(educacion.getTitulo());
+                edu.setDescripcion(educacion.getDescripcion());
+                edu.setTiempoDesde(educacion.getTiempoDesde());
+                edu.setTiempoHasta(educacion.getTiempoHasta());
+                edu.setImagen(educacion.getImagen());
+                edu.setUsuario(educacion.getUsuario());
+                edu.setActualmente(educacion.getActualmente());
+                edu.setLinkCertificate(educacion.getLinkCertificate());
+                eduRepo.flush();
+                eduRepo.save(edu);
+            }
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
         }
     }
-
 }

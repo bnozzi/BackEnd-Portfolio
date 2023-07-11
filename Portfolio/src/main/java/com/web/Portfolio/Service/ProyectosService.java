@@ -21,44 +21,72 @@ public class ProyectosService implements InterProyectoService {
 
     @Override
     public List<Proyecto> getAllProyects() {
-        return proyectoRepository.findAll();
+        try {
+            return proyectoRepository.findAll();
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            return null; // O devuelve una lista vacía, dependiendo de tus requisitos
+        }
     }
 
     @Override
     public Proyecto getProyect(long id) {
-        return proyectoRepository.findById(id).orElse(null);
+        try {
+            return proyectoRepository.findById(id).orElse(null);
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            return null; // O devuelve un objeto nulo, dependiendo de tus requisitos
+        }
     }
 
     @Override
     public void addProyect(Proyecto proyect) {
-        Usuario user = userRepo.findById((long) 151297).orElse(null);
-        user.agregarProyecto(proyect);
-        proyect.setUsuario(user);
-        userRepo.flush();
-        proyectoRepository.save(proyect);
-
+        try {
+            Usuario user = userRepo.findById((long) 151297).orElse(null);
+            user.agregarProyecto(proyect);
+            proyect.setUsuario(user);
+            userRepo.flush();
+            proyectoRepository.save(proyect);
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
+        }
     }
 
     @Override
     public void deleteProyect(Long id) {
-        proyectoRepository.deleteById(id);
-
+        try {
+            proyectoRepository.deleteById(id);
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
+        }
     }
 
     @Override
     public void updateProyect(long id, Proyecto proyect) {
-        Proyecto proyecto = proyectoRepository.findById(id).orElse(null);
+        try {
+            Proyecto proyecto = proyectoRepository.findById(id).orElse(null);
 
-        if (proyecto != null) {
-            proyecto.setImagenProyecto(proyect.getImagenProyecto());
-            proyecto.setTitulo(proyect.getTitulo());
-            proyecto.setDescripcion(proyect.getDescripcion());
-            proyecto.setTecnologias(proyect.getTecnologias());
-            proyecto.setUrl(proyect.getUrl());
-            proyecto.setUrlRepositorio(proyect.getUrlRepositorio());
+            if (proyecto != null) {
+                proyecto.setImagenProyecto(proyect.getImagenProyecto());
+                proyecto.setTitulo(proyect.getTitulo());
+                proyecto.setDescripcion(proyect.getDescripcion());
+                proyecto.setTecnologias(proyect.getTecnologias());
+                proyecto.setUrl(proyect.getUrl());
+                proyecto.setUrlRepositorio(proyect.getUrlRepositorio());
 
-            proyectoRepository.flush();
-            proyectoRepository.save(proyecto);
+                proyectoRepository.flush();
+                proyectoRepository.save(proyecto);
+            }
+        } catch (Exception ex) {
+            // Manejo de la excepción
+            ex.printStackTrace();
+            // Otros pasos de manejo de excepciones, como devolver una respuesta de error
         }
     }
 
