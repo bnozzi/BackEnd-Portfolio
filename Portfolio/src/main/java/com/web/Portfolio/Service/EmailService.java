@@ -14,15 +14,26 @@ public class EmailService {
     @Autowired
     private JavaMailSender emailSender;
 
-    public void sendSimpleMessage(
-            String to, String subject, String text
-
+    public void sendSimpleMessageResponse(
+            String to,
+            String name
     ) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("b.pizzipe@gmail.com");
         message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
+        message.setSubject("Respuesta automatica");
+        message.setText("Hola "+ name + "! \n ¡Gracias por tu mensaje! Solo queria confirmarte que he recibido tu correo y estoy emocionado de que estes interesado/a en mi trabajo. Te responderé lo antes posible.\nSaludos! Bruno Pizzi");
         emailSender.send(message);
+    }
+
+    public void messageForMe(String from, String subject , String text){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("b.pizzipe@gmail.com");
+        message.setTo("b.pizzipe@gmail.com");
+        message.setSubject(subject);
+        message.setText("from: " + from + "\n"+ "message: \n" + text);
+        emailSender.send(message);
+
+
     }
 }

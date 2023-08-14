@@ -21,7 +21,9 @@ public class MessageController {
     @PostMapping("/message")
     public void sendMessage(@RequestBody Message message) {
         message.setUsuario(usuarioService.getUser((long) 151297)); 
-        emailService.sendSimpleMessage(message.getPara(), message.getAsunto(), message.getMensaje()); // (to, subject, text)
+        emailService.sendSimpleMessageResponse(message.getPara() , message.getNombre()); // respuesta automatica 
+        emailService.messageForMe(message.getPara(), message.getAsunto(), message.getMensaje()); // mensaje para mi
+
     }
 
 }
