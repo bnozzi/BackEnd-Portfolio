@@ -50,6 +50,10 @@ public class Usuario {
   @JoinColumn(name = "sobreMi_id")
   private SobreMi sobreMi;
 
+
+  @OneToMany(mappedBy = "usuario")
+  private List<Message> mensajes;
+
   private String email;
   private String nombre;
 

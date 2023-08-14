@@ -1,12 +1,14 @@
 com/web/Portfolio/Service/InterProyectoService.class
 com/web/Portfolio/Model/Proyecto.class
 com/web/Portfolio/Controller/ProyectoController.class
+com/web/Portfolio/Service/EmailService.class
 com/web/Portfolio/Controller/EducacionController.class
 com/web/Portfolio/Controller/RedSocialController.class
 com/web/Portfolio/Model/SobreMi.class
 com/web/Portfolio/Repository/RedSocialRepository.class
 com/web/Portfolio/Model/RedSocial.class
 com/web/Portfolio/Repository/ExperienciaRepository.class
+com/web/Portfolio/Model/Message.class
 com/web/Portfolio/Repository/SkillCategoryRepository.class
 com/web/Portfolio/Service/ProyectosService.class
 com/web/Portfolio/Service/EducacionService.class
@@ -21,6 +23,7 @@ com/web/Portfolio/Model/Educacion.class
 com/web/Portfolio/Model/SkillCategory.class
 com/web/Portfolio/Controller/Controller.class
 com/web/Portfolio/Repository/ProyectoRepository.class
+com/web/Portfolio/Controller/MessageController.class
 com/web/Portfolio/Model/Experiencia.class
 com/web/Portfolio/Repository/UserRepository.class
 com/web/Portfolio/Service/InterUserService.class

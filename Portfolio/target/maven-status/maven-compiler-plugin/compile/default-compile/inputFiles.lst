@@ -1,13 +1,16 @@
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Model/Educacion.java
+/home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Model/Message.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Controller/ProyectoController.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Service/RedSocialService.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Repository/ProyectoRepository.java
+/home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Service/EmailService.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/WebConfig.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Repository/SkillCategoryRepository.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/PortfolioApplication.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Service/InterProyectoService.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Service/SkillCategoryService.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Service/InterExperienciaService.java
+/home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Controller/MessageController.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Model/RedSocial.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Service/InterUserService.java
 /home/bruno/AP/Portfolio/BackEnd/Portfolio/src/main/java/com/web/Portfolio/Model/SkillCategory.java
